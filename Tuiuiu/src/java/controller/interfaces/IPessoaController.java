@@ -5,15 +5,18 @@
  */
 package controller.interfaces;
 
+import dao.ContaController;
+import java.util.List;
+import model.Pessoa;
+
 /**
  *
  * @author 161095056
  */
-public interface seguindo {
+public interface IPessoaController {
     
-     public void listar();
-    public void consultar();
-    public void alterar();
-    public void excluir();
+    public List<Pessoa> listar();
+    public List<Pessoa> pesquisar(String nome);
+    
     
 }

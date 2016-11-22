@@ -5,13 +5,15 @@
  */
 package controller.interfaces;
 
+import java.util.Date;
+import model.Conta;
 import model.Pessoa;
 
 /**
  *
  * @author 161095056
  */
-public interface Conta {
+public interface IContaController {
 
     public boolean logar(String usuario, String senha);
 
@@ -20,7 +22,14 @@ public interface Conta {
     public boolean alterarSenha(String senha, String novaSenha);
 
     public boolean excluir(String senha);
-    
-    public boolean permissao(String senha, Pessoa pessoa);
+
+
+    public boolean alterarNome(Conta conta, String nome);
+
+    public boolean alterarSexo(Conta conta, boolean sexo);
+
+    public boolean alterarEndereco(Conta conta, String endereco);
+
+    public boolean alterarDataNasc(Conta conta, Date dataNasc);
 
 }
