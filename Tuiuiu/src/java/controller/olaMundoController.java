@@ -20,12 +20,21 @@ public class olaMundoController {
         
         return "oi";
     }
-    @RequestMapping("/teste")
+    @RequestMapping("/pesquisados")
     public String oi(){
         return "pesquisados";
     }
     @RequestMapping("/cadastro")
     public String cadastro(){
         return "cadastro";
+    }
+    @RequestMapping("/telaprincipal")
+    public String telaPrincipal(){
+        return "telaprincipal";
+    }
+    
+    @RequestMapping("/telainicial")
+    public String telaInicial(){
+        return "telainicial";
     }
 }
