@@ -15,6 +15,8 @@
 
        <mvc:annotation-driven/>
        <context:component-scan base-package="controller"/>
+      
+     <mvc:resources mapping="WEB-INF/jquery" location="/jquery/jquery-3.1.1.min.js"/>
        
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"

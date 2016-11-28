@@ -18,10 +18,14 @@ public class olaMundoController {
     @RequestMapping("/oi")
     public String HelloWorld(){
         
-        return "index";
+        return "oi";
     }
     @RequestMapping("/teste")
     public String oi(){
-        return "oi";
+        return "pesquisados";
+    }
+    @RequestMapping("/cadastro")
+    public String cadastro(){
+        return "cadastro";
     }
 }
