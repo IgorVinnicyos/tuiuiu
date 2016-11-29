@@ -30,11 +30,12 @@ public class Twitter {
     @Column(name="texto",nullable=false)
     private String texto;
 
-    public Twitter(int idpessoa, Date datapub, String texto) {
+    public Twitter(int idpessoa, String texto) {
         this.idpessoa = idpessoa;
         this.datapub = new Date(System.currentTimeMillis());
         this.texto = texto;
     }
+    
 
     public String getTexto() {
         return texto;

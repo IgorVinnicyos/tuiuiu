@@ -5,7 +5,7 @@
  */
 package controller.interfaces;
 
-import dao.ContaController;
+import dao.ContaDao;
 import java.util.List;
 import model.Pessoa;
 

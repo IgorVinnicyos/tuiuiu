@@ -14,7 +14,7 @@
     <body>
     <center style="margin-top: 15%;">
         <h1>Cadastre-se!</h1>
-        <form action="">
+        <form action="cadastrar">
             Nome: <input style="width: 20%;"type="text" placeholder="insira seu nome" name="nome">
             <br><br>
             Email: <input style="width: 20%;" type="text" placeholder="insira seu email" name="email">

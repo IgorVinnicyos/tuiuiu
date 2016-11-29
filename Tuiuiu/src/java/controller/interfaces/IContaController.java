@@ -15,7 +15,7 @@ import model.Pessoa;
  */
 public interface IContaController {
 
-    public boolean logar(String usuario, String senha);
+    public Conta logar(String email, String senha);
 
     public boolean alterarUsuario(String senha, String novoUsuario);
 

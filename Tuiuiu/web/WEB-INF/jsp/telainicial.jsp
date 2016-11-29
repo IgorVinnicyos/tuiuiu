@@ -101,14 +101,16 @@
         </header>
             <div class="usuario-logado">
                 <div class="info-user">
-                <span style="color:white;" class="user">Nome</span><br>
-                <span >teste@teste.com</span>
+                <span style="color:white;" class="user"> ${usuarioLogado.nome}</span><br>
+                <span > ${usuarioLogado.email}</span><br>
                 </div>
                 <hr>
+                <a href="deletar?id=${usuarioLogado.id}"><font color="white">Deletar conta</font></a>
             </div>   
             <div class="TextBox">
-                <form class="formTwittar" action="">
-                    <textarea class="input" rows="4" cols="50" placeholder="O que você está pensando?"></textarea>
+                <form class="formTwittar" action="enviarTwitter" method="post">
+                    <textarea name="texto" class="input" rows="4" cols="50" placeholder="O que você está pensando?"></textarea>
+                    <input name="idpessoa" type="hidden" value=${usuarioLogado.id}>
                     <input style="top:2%;"class="input" type="submit" value="Enviar"></textarea>
                 </form>
             </div>

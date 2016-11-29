@@ -5,29 +5,35 @@
  */
 package dao;
 
+import hibernate.Util;
 import java.util.Date;
+import java.util.List;
 import model.Conta;
 import model.Pessoa;
+import org.hibernate.Session;
 
 /**
  *
  * @author 161095056
  */
-public class ContaController implements controller.interfaces.IContaController{
-    private static ContaController instance;
-    private ContaController(){
-        
-    }
-    public static synchronized ContaController getInstance(){
-        if(instance == null){
-            instance = new ContaController();
-        }
-        return instance;
+public class ContaDao implements controller.interfaces.IContaController {
+
+    public ContaDao() {
+
     }
 
-    @Override
-    public boolean logar(String usuario, String senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean inserir(Conta conta) {
+
+        try {
+            Session session = Util.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.save(conta);
+            session.getTransaction().commit();
+            session.close();
+            return true;
+        } catch (Exception e) {
+        }
+        return false;
     }
 
     @Override
@@ -63,6 +69,33 @@ public class ContaController implements controller.interfaces.IContaController{
     @Override
     public boolean alterarDataNasc(Conta conta, Date dataNasc) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Conta logar(String email, String senha) {
+        List<Conta> lista;
+        Session session = Util.getSessionFactory().openSession();
+        session.beginTransaction();
+        lista = session.createQuery("from Conta where email = :email and senha = :senha").setParameter("email", email).setParameter("senha", senha).list();
+        session.getTransaction().commit();
+        session.close();
+        if (lista != null && !lista.isEmpty()) {
+            Conta user = lista.get(0);
+            return user;
+        }
+
+        return null;
+    }
+    
+    public String retornaNomeByID(int id){
+        List<Conta> lista;
+        Session session = Util.getSessionFactory().openSession();
+        session.beginTransaction();
+        lista = session.createQuery("from Conta where id = :id").setParameter("id", id).list();
+        session.getTransaction().commit();
+        session.close();
+        
+        return lista.get(0).getNome();
     }
 
 }
